@@ -1,6 +1,9 @@
 import React from 'react';
 import {Helmet} from 'react-helmet';
 import axios from 'axios';
+import { Layout } from 'antd';
+
+const { Content } = Layout;
 
 class Home extends React.Component {
     constructor(props) {
@@ -25,6 +28,8 @@ class Home extends React.Component {
                     <title>Posts</title>
                     <meta name="description" content="home" />
                 </Helmet>
+                <Layout>
+                    <Content style={{ padding: '0 50px', marginTop: 64 }}>
                 <div>
                     {Post.map((post) =>
                         <div key={post.slug}>
@@ -32,6 +37,8 @@ class Home extends React.Component {
                         </div>
                     )}
                 </div>
+                    </Content>
+                </Layout>
             </div>
         )
     }

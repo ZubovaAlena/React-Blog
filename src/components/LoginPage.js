@@ -1,6 +1,9 @@
 import React from 'react';
 import {Helmet} from 'react-helmet';
 import axios from "axios/index";
+import { Input, Button, Layout, Form } from "antd";
+
+const { Content } = Layout;
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -48,13 +51,18 @@ class LoginPage extends React.Component {
                     <meta name="description" content="loginPage"/>
                 </Helmet>
                 <div>
-                    <form onSubmit={this.handleSubmit}>
-                        <p><label> Логин: <input type="email" name="email" value={this.state.email}
+                    <Layout>
+                        <Content style={{ padding: '0 50px', marginTop: 64 }}>
+                    <Form onSubmit={this.handleSubmit}>
+                        <p><label> Логин: <Input name="email" value={this.state.email}
                                                  onChange={this.onChangeLogin}/></label></p>
-                        <p><label> Пароль: <input type="password" name="password" value={this.state.password}
+                        <p><label> Пароль: <Input name="password" value={this.state.password}
                                                   onChange={this.onChangePassword}/></label></p>
-                        <p><input type="submit" value="Submit" /></p>
-                    </form>
+
+                        <p><Button type="primary">Submit</Button></p>
+                    </Form>
+                        </Content>
+                    </Layout>
                 </div>
             </div>
         )

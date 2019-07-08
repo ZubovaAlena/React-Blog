@@ -1,6 +1,9 @@
 import React from 'react';
 import {Helmet} from 'react-helmet';
 import axios from 'axios';
+import { Input, Button, Layout, Form } from 'antd';
+
+const { Content } = Layout;
 
 class RegPage extends React.Component{
     constructor(props) {
@@ -49,15 +52,19 @@ class RegPage extends React.Component{
                     <title>RegPage</title>
                     <meta name="description" content="regPage"/>
                 </Helmet>
-                <form onSubmit={this.handleSubmit}>
-                    <p><label> Логин: <input type="text" name="username" value={this.state.username}
+                <Layout>
+                    <Content style={{ padding: '0 50px', marginTop: 64 }}>
+                <Form onSubmit={this.handleSubmit}>
+                    <p><label> Логин: <Input name="username" value={this.state.username}
                                              onChange={this.onChangeLogin}/></label></p>
-                    <p><label> Пароль: <input type="password" name="password" value={this.state.password}
+                    <p><label> Пароль: <Input name="password" value={this.state.password}
                                               onChange={this.onChangePassword}/></label></p>
-                    <p><label> E-mail: <input type="email" name="email" value={this.state.email}
+                    <p><label> E-mail: <Input name="email" value={this.state.email}
                                               onChange={this.onChangeEmail}/></label></p>
-                    <p><input type="submit" value="Submit"  /></p>
-                </form>
+                    <p><Button type="primary">Submit</Button></p>
+                </Form>
+                    </Content>
+                </Layout>
             </div>
         )
     }
